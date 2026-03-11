@@ -54,8 +54,8 @@ def _read_input_csv(path: str) -> List[AddressInput]:
     if not os.path.isfile(path):
         raise FileNotFoundError(f"Input file not found: {path}")
 
-    with open(path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
+    with open(path, newline="", encoding="utf-8") as in_stream:
+        reader = csv.DictReader(in_stream)
         required_columns = {"id", "address", "postal", "city", "country"}
         for col in required_columns:
             if col not in reader.fieldnames:
@@ -67,7 +67,12 @@ def _read_input_csv(path: str) -> List[AddressInput]:
                 if not row.get(col) or not row[col].strip():
                     raise ValueError(f"Row {idx} is missing a value for required column '{col}'.")
             
-            addresses.append(AddressInput(id=row.get("id"), address=row.get("address") or "", postal=row.get("postal") or "", city=row.get("city") or "", country=row.get("country") or ""))
+            addresses.append(AddressInput(
+                id=int(row.get("id")), 
+                address=row.get("address") or "", 
+                postal=row.get("postal") or "", 
+                city=row.get("city") or "", 
+                country=row.get("country") or ""))
 
     return addresses
 
@@ -80,12 +85,12 @@ def _write_output_csv(path: str, results: List[GeocodeResult]) -> None:
         "latitude",
         "longitude",
         "score",
-        "match_status",
-        "error",
+        "match_type",
+        "match_status"
     ]
 
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+    with open(path, "w", newline="", encoding="utf-8") as out_stream:
+        writer = csv.DictWriter(out_stream, fieldnames=fieldnames)
         writer.writeheader()
         for result in results:
             writer.writerow(
@@ -96,8 +101,8 @@ def _write_output_csv(path: str, results: List[GeocodeResult]) -> None:
                     "latitude": result.latitude if result.latitude is not None else "",
                     "longitude": result.longitude if result.longitude is not None else "",
                     "score": result.score if result.score is not None else "",
-                    "match_status": result.match_status,
-                    "error": result.error or "",
+                    "match_type": result.match_type or "",
+                    "match_status": result.match_status
                 }
             )
 

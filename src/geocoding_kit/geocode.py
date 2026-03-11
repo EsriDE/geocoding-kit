@@ -5,8 +5,10 @@ from typing import Dict, Iterable, List, Optional
 from arcgis.gis import GIS
 from arcgis.geocoding import Geocoder, batch_geocode
 
+from dataclasses import asdict
+
 from .config import ArcGISConfig
-from .models import AddressInput, GeocodeResult
+from .models import AddressInput, GeocodeResponse, GeocodeResult
 
 
 class PlatformGeocoder:
@@ -32,8 +34,7 @@ class PlatformGeocoder:
 
         # Build deterministic ordering and mapping by input ID.
         input_list = list(addresses)
-        inputs_by_id: Dict[str, AddressInput] = {addr.id: addr for addr in input_list}
-        results_by_id: Dict[str, GeocodeResult] = {}
+        results_by_id: Dict[int, GeocodeResult] = {}
 
         # Initialize the Geocoder with API key for authentication.
         portal = GIS(api_key=self._config.api_key)
@@ -44,61 +45,70 @@ class PlatformGeocoder:
             batch = input_list[batch_start : batch_start + batch_size]
 
             try:
-                response = batch_geocode(
-                    addresses,
+                # Convert addresses to dict
+                def to_address_dict(addr: AddressInput) -> Dict:
+                    addr_dict = asdict(addr)
+                    addr_dict["OBJECTID"] = addr_dict["id"]  # Add OBJECTID for tracking
+                    return addr_dict
+                
+                addresses_dict = [to_address_dict(addr) for addr in batch]
+                
+                # Batch geocode expects a list of dicts with address components
+                geocode_response = batch_geocode(
+                    addresses=addresses_dict,
                     geocoder=geocoder
                 )
             except Exception as ex:  # pragma: no cover
                 # Treat as a fatal error for the whole batch.
-                for item in batch:
-                    results_by_id[item.id] = GeocodeResult(
-                        id=item.id,
-                        input_address=item.address,
+                for addr in batch:
+                    results_by_id[addr.id] = GeocodeResult(
+                        id=addr.id,
+                        input_address=addr.address,
                         matched_address=None,
                         latitude=None,
                         longitude=None,
                         score=None,
                         match_type=None,
-                        match_status="Error",
-                        error=str(ex),
+                        match_status="U",
                     )
                 continue
 
-            batch_results = self._parse_response(response, batch)
-            results_by_id.update({r.id: r for r in batch_results})
+            batch_results = self._parse_response(geocode_response, batch)
+            results_by_id.update({result.id: result for result in batch_results})
 
         # Ensure results list matches the input order.
         return [results_by_id.get(addr.id) for addr in input_list]
 
-    def _parse_response(self, response: dict, batch: List[AddressInput]) -> List[GeocodeResult]:
-        """Parse ArcGIS geocodeAddresses response into GeocodeResult list."""
+    def _parse_response(self, response: List[Dict], batch: List[AddressInput]) -> List[GeocodeResult]:
+        """Parse the geocode addresses response into GeocodeResult list."""
 
         # Build a mapping from OBJECTID to AddressInput.
         # We used sequential OBJECTIDs per batch.
-        inputs_by_oid: Dict[int, AddressInput] = {
-            idx: item for idx, item in enumerate(batch)
-        }
+        inputs_by_oid: Dict[int, AddressInput] = {addr.id: addr for addr in batch}
 
         results: List[GeocodeResult] = []
-        locations = response.get("locations") or []
+        entries = [GeocodeResponse(**loc) for loc in response] or []
 
         # Track which inputs were matched.
         matched_oids = set()
 
-        for loc in locations:
-            attributes = loc.get("attributes", {})
-            oid = attributes.get("OBJECTID")
+        # For each geocoding result, map back to the input and create a GeocodeResult.
+        # For details on output fields, see:
+        # https://developers.arcgis.com/rest/geocode/service-output/#output-fields
+        for entry in entries:
+            attributes = entry.attributes
+            oid = attributes.get("ResultID")
             if oid is None or oid not in inputs_by_oid:
                 continue
 
             input_item = inputs_by_oid[oid]
             matched_oids.add(oid)
 
-            score = attributes.get("Score")
-            match_status = "Matched" if score and score > 0 else "NoMatch"
+            score = entry.score
+            match_status = attributes.get("Status")
 
             # Coordinates may be inside `location` dict.
-            location = loc.get("location") or {}
+            location = entry.location
             latitude = location.get("y")
             longitude = location.get("x")
 
@@ -109,9 +119,8 @@ class PlatformGeocoder:
                 latitude=float(latitude) if latitude is not None else None,
                 longitude=float(longitude) if longitude is not None else None,
                 score=float(score) if score is not None else None,
-                match_type=attributes.get("FeatureType"),
-                match_status=match_status,
-                error=None if match_status == "Matched" else "No match found",
+                match_type=attributes.get("Addr_type"),
+                match_status=match_status
             )
             results.append(result)
 
@@ -128,11 +137,8 @@ class PlatformGeocoder:
                     longitude=None,
                     score=None,
                     match_type=None,
-                    match_status="NoMatch",
-                    error="No match found",
+                    match_status="U",
                 )
             )
 
-        # Preserve original input order in output.
-        results.sort(key=lambda r: int(r.id) if str(r.id).isdigit() else 0)
         return results
