@@ -25,11 +25,11 @@ description: "Task list for Python ArcGIS Location Platform geocoding example"
 
 - [ ] T006 Create `src/geocoding_kit/config.py` to read `ARCGIS_API_KEY` (env var + optional `.env` support)
 - [ ] T007 Create `src/geocoding_kit/models.py` defining `AddressInput` and `GeocodeResult` dataclasses
-- [ ] T008 Create `src/geocoding_kit/geocode.py` with a `Geocoder` wrapper that calls ArcGIS `geocodeAddresses` via the `arcgis` package
-- [ ] T009 [P] Create `examples/geocode_addresses.py` CLI script that reads a CSV, calls the geocoding wrapper, and writes output CSV
+- [ ] T008 Create `src/geocoding_kit/geocode.py` using `arcgis.geocoding.Geocoder` that calls `geocodeAddresses` via the `arcgis.geocoding.geocode` function
+- [ ] T009 [P] Create `examples/geocode_addresses.py` CLI script that reads a CSV, calls the geocoder instance, and writes output CSV
 - [ ] T010 Add `tests/unit/test_config.py` verifying env var parsing and missing-key errors
 - [ ] T011 Add `tests/unit/test_models.py` verifying data model serialization and field coverage
-- [ ] T012 Add `tests/unit/test_geocode.py` with mocked ArcGIS responses to validate parsing and error handling
+- [ ] T012 Add `tests/unit/test_geocode.py` with mocked geocode service responses to validate parsing and error handling
 
 ---
 
