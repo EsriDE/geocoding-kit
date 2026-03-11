@@ -25,7 +25,7 @@ description: "Task list for Python ArcGIS Location Platform geocoding example"
 
 - [ ] T006 Create `src/geocoding_kit/config.py` to read `ARCGIS_API_KEY` (env var + optional `.env` support)
 - [ ] T007 Create `src/geocoding_kit/models.py` defining `AddressInput` and `GeocodeResult` dataclasses
-- [ ] T008 Create `src/geocoding_kit/geocode.py` using `arcgis.geocoding.Geocoder` that calls `geocodeAddresses` via the `arcgis.geocoding.geocode` function
+- [ ] T008 Create `src/geocoding_kit/geocode.py` that calls `geocodeAddresses`
 - [ ] T009 [P] Create `examples/geocode_addresses.py` CLI script that reads a CSV, calls the geocoder instance, and writes output CSV
 - [ ] T010 Add `tests/unit/test_config.py` verifying env var parsing and missing-key errors
 - [ ] T011 Add `tests/unit/test_models.py` verifying data model serialization and field coverage
@@ -45,7 +45,7 @@ description: "Task list for Python ArcGIS Location Platform geocoding example"
 
 ### Implementation for User Story 1
 
-- [ ] T014 [US1] Create `examples/addresses.csv` fixture with 3 sample addresses
+- [ ] T014 [US1] Create `examples/addresses.csv` fixture with sample addresses
 - [ ] T015 [US1] Implement CLI flags in `examples/geocode_addresses.py` (`--input`, `--output`, `--key`, `--batch-size`, `--verbose`)
 - [ ] T016 [US1] Implement CSV input parsing and validation in `examples/geocode_addresses.py`
 - [ ] T017 [US1] Implement CSV output writing including `matched_address`, `latitude`, `longitude`, `score`, `match_status`, and `error`

@@ -38,7 +38,7 @@ ARCGIS_API_KEY=<your-api-key>
 
 ## 5) Run the example
 
-Prepare a CSV file with columns named `id, address, postal, city, country`.
+Prepare a CSV file with a column named `address`. Other columns are ignored.
 
 Example input (`addresses.csv`):
 
@@ -58,6 +58,12 @@ Run the script:
 
 ```bash
 python examples/geocode_addresses.py --input addresses.csv --output results.csv
+```
+
+You can also pass a key directly (overrides `ARCGIS_API_KEY`):
+
+```bash
+python examples/geocode_addresses.py --input addresses.csv --output results.csv --key "$ARCGIS_API_KEY"
 ```
 
 ## 6) Inspect the output
