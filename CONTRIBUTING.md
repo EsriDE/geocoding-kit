@@ -12,7 +12,7 @@ Here’s how you can get involved:
 - Clone your forked repository to your local machine using:
   
 ```
-git clone https://github.com/EsriDE/urban-heat-risk-index.git
+git clone https://github.com/EsriDE/geocoding-kit.git
 ```
 
 ## Create a Branch
