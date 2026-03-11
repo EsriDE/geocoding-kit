@@ -12,7 +12,7 @@ description: "Task list for Python ArcGIS Location Platform geocoding example"
 **Purpose**: Project initialization, tooling, and example scaffolding.
 
 - [ ] T001 Create Python project structure with `examples/`, `src/geocoding_kit/`, and `tests/` directories
-- [ ] T002 Add `requirements.txt` listing `arcgis`, `python-dotenv`, and `pytest` (and optional `pandas`)
+- [ ] T002 Add `requirements.txt` listing `arcgis`, `python-dotenv`, and (optional) `pandas` (unittest is built into the standard library)
 - [ ] T003 Add a minimal `README.md` section (or update existing) pointing to the example script and quickstart documentation
 - [ ] T004 [P] Configure linting/formatting (e.g., `ruff`, `black`, or similar) and add a `pyproject.toml` or other config file
 - [ ] T005 [P] Add a basic `.env.example` file documenting `ARCGIS_API_KEY` usage
