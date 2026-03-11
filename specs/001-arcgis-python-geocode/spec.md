@@ -73,3 +73,9 @@ As a developer, I want the example code to clearly show how to handle addresses 
 - **SC-002**: The example clearly indicates when an address could not be geocoded and does not terminate processing for remaining addresses.
 - **SC-003**: The documentation example is copy/paste runnable with no modifications beyond setting API credentials.
 - **SC-004**: Users can diagnose authentication failures from the output message without needing to inspect the code.
+
+## Clarifications
+
+### Session 2026-03-11
+- Q: Does the output CSV include an `error` column when geocoding fails?
+  → A: No. The script uses `match_status` to indicate success or failure (e.g., `M`, `T`, `U`). The output CSV does not include a separate `error` column.

@@ -13,22 +13,22 @@ from geocoding_kit.models import GeocodeResult
 
 
 class TestGeocodeExampleCLI(unittest.TestCase):
-    @patch("examples.geocode_addresses.Geocoder")
+    @patch("examples.geocode_addresses.PlatformGeocoder")
     def test_cli_runs_and_generates_output(self, mock_geocoder_class):
         """The CLI should write a results CSV with the expected header columns."""
 
         # Arrange: stub out geocoding results to avoid network calls.
         dummy_result = GeocodeResult(
-            id="0",
+            id=1,
             input_address="123 Main St",
             matched_address="123 Main St",
             latitude=34.0,
             longitude=-117.0,
             score=95.0,
             match_type="PointAddress",
-            match_status="Matched",
-            error=None,
+            match_status="Matched"
         )
+
         mock_geocoder = mock_geocoder_class.return_value
         mock_geocoder.geocode.return_value = [dummy_result]
 

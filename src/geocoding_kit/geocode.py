@@ -1,14 +1,18 @@
 from __future__ import annotations
 
-from typing import Dict, Iterable, List, Optional
-
-from arcgis.gis import GIS
-from arcgis.geocoding import Geocoder, batch_geocode
-
 from dataclasses import asdict
+from typing import Dict, Iterable, List, Optional
 
 from .config import ArcGISConfig
 from .models import AddressInput, GeocodeResponse, GeocodeResult
+
+try:
+    from arcgis.gis import GIS
+    from arcgis.geocoding import Geocoder, batch_geocode
+except ImportError:  # pragma: no cover
+    GIS = None  # type: ignore[assignment]
+    Geocoder = None  # type: ignore[assignment]
+    batch_geocode = None  # type: ignore[assignment]
 
 
 class PlatformGeocoder:

@@ -36,6 +36,7 @@ A small repo of examples and best-practices for working with geocoding APIs.
    ```bash
    python examples/geocode_addresses.py --input examples/addresses.csv --output examples/results.csv
    ```
+
 3. Inspect the output:
    ```bash
    cat examples/results.csv

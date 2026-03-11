@@ -24,13 +24,14 @@ python examples/geocode_addresses.py --input <INPUT_CSV> --output <OUTPUT_CSV> [
 
 The output CSV contains one row per input address, with columns including (but not limited to):
 
+- `id`
 - `input_address`
 - `matched_address`
 - `latitude`
 - `longitude`
 - `score`
-- `match_status` (e.g., `Matched`, `NoMatch`)
-- `error` (empty if successful)
+- `match_type` (e.g. `PointAddress`)
+- `match_status` (e.g., `M`, `T`, `U`)
 
 ## Errors
 

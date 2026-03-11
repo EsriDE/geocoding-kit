@@ -4,7 +4,12 @@ import os
 from dataclasses import dataclass
 from typing import Optional
 
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv  # type: ignore
+except ImportError:  # pragma: no cover
+    def load_dotenv(*args, **kwargs):
+        """No-op loader when python-dotenv is not installed."""
+        return False
 
 
 @dataclass(frozen=True)
