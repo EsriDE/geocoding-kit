@@ -1,9 +1,0 @@
-id,input_address,matched_address,latitude,longitude,score,match_type,match_status
-10178,Karl-Liebknecht-Straße 5,"Karl-Liebknecht-Straße 5, 10178, Berlin, Mitte, Berlin",52.519723913874,13.40401559761,100.0,PointAddress,M
-53113,Adenauerallee 206,"Adenauerallee 206, 53113, Bonn, Gronau, Nordrhein-Westfalen",50.720188394524,7.115907392984,100.0,PointAddress,M
-20097,Wendenstraße 8 - 12,"Wendenstraße 8, 20097, Hamburg, Hamburg-Mitte, Hamburg",53.547009170776,10.025766636257,99.29,PointAddress,M
-30173,Freundallee 23,"Freundallee 23, 30173, Hannover, Bult, Niedersachsen",52.365701120517,9.773706798336,100.0,PointAddress,M
-50668,Konrad-Adenauer-Ufer 41-45,"Konrad-Adenauer-Ufer 41, 50668, Köln, Altstadt-Nord, Nordrhein-Westfalen",50.947819510916,6.964277339617,99.35,PointAddress,M
-85402,Ringstraße 7,"Ringstraße 7, 85402, Kranzberg, Bayern",48.406576755646,11.609137063664,100.0,PointAddress,M
-4155,Fechnerstraße 8,"Fechnerstraße 8, 04155, Leipzig, Gohlis-Süd, Sachsen",51.358979521952,12.356216680424,100.0,PointAddress,M
-48155,Martin-Luther-King-Weg 24,"Martin-Luther-King-Weg 24, 48155, Münster, Münster-Südost, Nordrhein-Westfalen",51.934921840176,7.651977961721,100.0,PointAddress,M
