@@ -7,14 +7,14 @@
 
 ## Summary
 
-Provide a minimal, copy/paste runnable Python example that reads a CSV list of addresses, calls the ArcGIS Location Platform Geocoding REST endpoint (`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/geocodeAddresses`) via the official `arcgis` Python module, and outputs geocoded coordinates with match scores. The goal is to onboard users quickly with a working script and clear guidance on authentication, error handling, and partial/missing results.
+Provide a minimal, copy/paste runnable Python example that reads a CSV list of addresses, calls the ArcGIS Location Platform Geocoding REST endpoint (`https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/geocodeAddresses`) via the official `arcgis` Python module, and outputs geocoded coordinates with match scores. The goal is to onboard users quickly with a working script and clear guidance on authentication, error handling, and partial/missing results.
 
 ## Technical Context
 
 **Language/Version**: Python 3.11+  
-**Primary Dependencies**: `arcgis` (ArcGIS API for Python), `pandas` (for CSV handling, optional), `typer` (CLI helper, optional), `python-dotenv` (optional)  
+**Primary Dependencies**: `arcgis` (ArcGIS API for Python), `python-dotenv` (optional)  
 **Storage**: Input: CSV file; output: CSV or stdout (no persistent storage required)  
-**Testing**: `pytest` (unit tests + integration tests using local fixtures / mock responses)  
+**Testing**: `unittest` (unit tests + integration tests using local fixtures / mock responses)  
 **Target Platform**: Linux/macOS (general desktop/workstation environment with network access)  
 **Project Type**: Library + CLI example script (documentation + runnable sample)  
 **Performance Goals**: Handle small-to-medium batches (hundreds–low thousands of addresses) with respect for ArcGIS rate limits; keep memory use minimal (streaming CSV processing when possible)  
@@ -26,7 +26,7 @@ Provide a minimal, copy/paste runnable Python example that reads a CSV list of a
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
 - ✅ **Code quality**: Plan assumes enforcement of formatting/linting (per constitution).  
-- ✅ **Testing**: Plan commits to `pytest` and testable example scripts.  
+- ✅ **Testing**: Plan commits to `unittest` and testable example scripts.  
 - ✅ **User experience**: Plan focuses on copy/paste runnable examples and clear output.  
 - ✅ **Performance**: Plan includes guidance for rate limiting and batching.  
 

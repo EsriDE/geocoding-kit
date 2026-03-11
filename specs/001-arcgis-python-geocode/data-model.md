@@ -8,15 +8,13 @@ This feature is primarily focused on transforming a list of input addresses into
 Represents a single address to be resolved.
 
 - **id**: string (optional) – A stable identifier for each row (e.g., row number or user-provided ID).
-- **raw_address**: string – The freeform address text to geocode.
-- **street** (optional): string – Street address portion.
+- **address**: string – The freeform address text to geocode.
+- **postal** (optional): string – Street address portion.
 - **city** (optional): string – City name.
-- **region** (optional): string – State/region.
-- **postal** (optional): string – Postal code.
-- **country** (optional): string – Country/region.
+- **country** (optional): string – Two letter ISO country code.
 
 ### GeocodeResult
-Represents the output from ArcGIS after attempting to geocode an `AddressInput`.
+Represents the output from the geocoding service after attempting to geocode an `AddressInput`.
 
 - **id**: string (matches AddressInput.id if provided)
 - **input_address**: string (original address string)

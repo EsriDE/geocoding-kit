@@ -38,15 +38,20 @@ ARCGIS_API_KEY=<your-api-key>
 
 ## 5) Run the example
 
-Prepare a CSV file with at least one column named `address`.
+Prepare a CSV file with columns named `id, address, postal, city, country`.
 
 Example input (`addresses.csv`):
 
 ```csv
-address
-380 New York St, Redlands, CA 92373
-1600 Pennsylvania Ave NW, Washington, DC 20500
-invalid address example
+id, address, postal, city, country
+1, Karl-Liebknecht-Straße 5, 10178, Berlin, DE
+2, Adenauerallee 206, 53113, Bonn, DE
+3, Wendenstraße 8 - 12, 20097, Hamburg, DE
+4, Freundallee 23, 30173, Hannover, DE
+5, Konrad-Adenauer-Ufer 41-45, 50668, Köln, DE
+6, Ringstraße 7, 85402, Kranzberg, DE
+7, Fechnerstraße 8, 04155, Leipzig, DE
+8, Martin-Luther-King-Weg 24, 48155, Münster, DE
 ```
 
 Run the script:
