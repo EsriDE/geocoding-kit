@@ -42,6 +42,17 @@ A small repo of examples and best-practices for working with geocoding APIs.
    cat examples/results.csv
    ```
 
+## Feature: ArcGIS API for Python Geocoding Example
+
+This repo includes a complete example feature implemented using the `specs/001-arcgis-python-geocode/` specification.
+
+Key parts:
+
+- `examples/geocode_addresses.py` — runnable script that reads a CSV, calls ArcGIS geocode, and writes results.
+- `src/geocoding_kit/` — supporting library (config, models, geocoding logic).
+- `tests/` — unit + integration tests verifying behavior.
+- `specs/001-arcgis-python-geocode/` — spec, implementation plan, and task tracking.
+
 ## Contributing
 
 We welcome contributions from anyone and everyone. Please see our [guidelines for contributing](CONTRIBUTING.md).
