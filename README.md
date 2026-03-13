@@ -87,6 +87,31 @@ Key parts:
 - `tests/` — unit + integration tests verifying behavior.
 - `specs/` — spec, implementation plan, and task tracking.
 
+### Run a simple interactive cli
+
+```bash
+uv run cli
+```
+
+```bash
+ℹ  Entering interactive mode. Type 'quit' to exit.
+
+
+Geocoding Shell - Enter an address to geocode
+--------------------------------------------------------------------------------
+Address: Adenauerallee 206, 53113 Bonn, Deutschland
+================================================================================
+Address:        Adenauerallee 206, 53113 Bonn, Deutschland
+Coordinates:    (7.115907392984, 50.720188394524)
+Score:          100.0
+Status:         M
+================================================================================
+
+Geocoding Shell - Enter an address to geocode
+--------------------------------------------------------------------------------
+Address:
+```
+
 # References
 
 For further information, walkthroughs, and community discussions, explore the following resources:

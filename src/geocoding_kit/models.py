@@ -35,3 +35,16 @@ class GeocodeResult:
     score: Optional[float]
     match_type: Optional[str]
     match_status: str
+
+@dataclass(frozen=True)
+class ExtendedGeocodeResult:
+    """The result of geocoding an address with all returned attributes."""
+
+    result: GeocodeResult
+    attributes: dict
+
+@dataclass(frozen=True)
+class SingleLineAddressInput:
+    """An single-line input address to be geocoded."""
+
+    address: str

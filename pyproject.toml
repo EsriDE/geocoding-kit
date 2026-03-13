@@ -1,11 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "geocoding-kit"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
+
 dependencies = [
     "arcgis>=2.4.2",
     "arcgis-mapping>=4.33.1",
     "dotenv>=0.9.9",
 ]
+
+[project.scripts]
+cli = "geocoding_kit.cli:main"

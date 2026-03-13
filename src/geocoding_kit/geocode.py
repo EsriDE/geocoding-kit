@@ -1,18 +1,14 @@
 from __future__ import annotations
+from urllib import response
+
+from arcgis.gis import GIS
+from arcgis.geocoding import Geocoder, batch_geocode, geocode
 
 from dataclasses import asdict
 from typing import Dict, Iterable, List, Optional
 
 from .config import ArcGISConfig
-from .models import AddressInput, GeocodeResponse, GeocodeResult
-
-try:
-    from arcgis.gis import GIS
-    from arcgis.geocoding import Geocoder, batch_geocode
-except ImportError:  # pragma: no cover
-    GIS = None  # type: ignore[assignment]
-    Geocoder = None  # type: ignore[assignment]
-    batch_geocode = None  # type: ignore[assignment]
+from .models import AddressInput, ExtendedGeocodeResult, GeocodeResponse, GeocodeResult, SingleLineAddressInput
 
 
 class PlatformGeocoder:
@@ -82,6 +78,64 @@ class PlatformGeocoder:
 
         # Ensure results list matches the input order.
         return [results_by_id.get(addr.id) for addr in input_list]
+    
+    def single_line_geocode(
+        self,
+        input: SingleLineAddressInput) -> ExtendedGeocodeResult:
+        """
+        Geocodes a single-line address.
+
+        Args:
+            input: A simple address e.g., "Adenauerallee 206, 53113 Bonn, Deutschland".
+        
+        Returns: 
+            The first match or an unmatched result if no match found.
+        """
+
+        # Initialize the Geocoder with API key for authentication.
+        portal = GIS(api_key=self._config.api_key)
+        geocoder = Geocoder(self._config.geocode_url, gis=portal)
+
+        geocode_response = geocode(address=input.address, geocoder=geocoder)
+        if 1 == len(geocode_response):
+            response = geocode_response[0]
+            score = response.get("score")
+
+            # Coordinates may be inside `location` dict.
+            location = response.get("location")
+            latitude = location.get("y")
+            longitude = location.get("x")
+
+            attributes = response.get("attributes")
+            match_status = attributes.get("Status")
+
+            return ExtendedGeocodeResult(
+                result=GeocodeResult(
+                    id=-1,  # No ID in single-line mode
+                    input_address=input.address,
+                    matched_address=attributes.get("Match_addr") or None,
+                    latitude=float(latitude) if latitude is not None else None,
+                    longitude=float(longitude) if longitude is not None else None,
+                    score=float(score) if score is not None else None,
+                    match_type=attributes.get("Addr_type"),
+                    match_status=match_status
+                ),
+                attributes=attributes
+            )
+        else:
+            return ExtendedGeocodeResult(
+                result=GeocodeResult(
+                    id=-1,
+                    input_address=input.address,
+                    matched_address=None,
+                    latitude=None,
+                    longitude=None,
+                    score=None,
+                    match_type=None,
+                    match_status="U"
+                ),
+                attributes={}
+            )
 
     def _parse_response(self, response: List[Dict], batch: List[AddressInput]) -> List[GeocodeResult]:
         """Parse the geocode addresses response into GeocodeResult list."""
