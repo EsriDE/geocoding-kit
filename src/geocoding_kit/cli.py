@@ -95,22 +95,21 @@ def format_result(extended_result: ExtendedGeocodeResult, verbose: bool=False) -
 
     lines = []
     lines.append("=" * 80)
-    lines.append(f"Address:        {result.input_address}")
+    lines.append(f"Address:         {result.input_address}")
+    lines.append(f"Matched Address: {result.matched_address or 'N/A'}")
     
     if result.latitude and result.longitude:
-        lines.append(f"Coordinates:    ({result.longitude}, {result.latitude})")
+        lines.append(f"Coordinates:     ({result.longitude}, {result.latitude})")
     else:
-        lines.append(f"Coordinates:    (No location)")
+        lines.append(f"Coordinates:     (No location)")
     
-    lines.append(f"Score:          {result.score}")
-    lines.append(f"Status:         {result.match_status}")
+    lines.append(f"Score:           {result.score}")
+    lines.append(f"Status:          {result.match_status}")
+    lines.append(f"Match Type:      {result.match_type or 'N/A'}")
     
     lines.append("=" * 80)
 
     if verbose:
-        lines.append(f"Matched Address: {result.matched_address or 'N/A'}")
-        lines.append(f"Match Type:      {result.match_type or 'N/A'}")
-
         # Print all atributes returned by the geocoding service, if any
         for key, value in extended_result.attributes.items():
             lines.append(f"  {key}: {value}")

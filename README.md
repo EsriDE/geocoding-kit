@@ -126,10 +126,12 @@ Geocoding Shell - Enter an address to geocode
 --------------------------------------------------------------------------------
 Address: Adenauerallee 206, 53113 Bonn, Deutschland
 ================================================================================
-Address:        Adenauerallee 206, 53113 Bonn, Deutschland
-Coordinates:    (7.115907392984, 50.720188394524)
-Score:          100.0
-Status:         M
+Address:         Adenauerallee 206, 53113 Bonn, Deutschland
+Coordinates:     (7.115907392984, 50.720188394524)
+Matched Address: Adenauerallee 206, 53113, Bonn, Gronau, Nordrhein-Westfalen
+Score:           100.0
+Status:          M
+Match Type:      PointAddress
 ================================================================================
 
 Geocoding Shell - Enter an address to geocode
