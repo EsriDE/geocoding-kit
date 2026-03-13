@@ -139,6 +139,8 @@ Geocoding Shell - Enter an address to geocode
 Address:
 ```
 
+<video src="https://github.com/user-attachments/assets/f146cc63-2e06-435e-bbf2-1cf11ea6ab18"></video>
+
 # References
 
 For further information, walkthroughs, and community discussions, explore the following resources:
