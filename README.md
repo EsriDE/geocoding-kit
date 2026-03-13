@@ -87,6 +87,20 @@ Key parts:
 - `tests/` — unit + integration tests verifying behavior.
 - `specs/` — spec, implementation plan, and task tracking.
 
+# References
+
+For further information, walkthroughs, and community discussions, explore the following resources:
+
+- **Developer Guide (Walkthroughs & Concepts)**  
+  https://developers.arcgis.com/documentation/mapping-and-location-services/geocoding/
+
+- **Geocoding Service REST API Reference**  
+  https://developers.arcgis.com/rest/geocode/
+
+- **Esri Community Forum for REST APIs**  
+  https://community.esri.com/t5/arcgis-rest-apis-and-services/ct-p/arcgis-rest-api
+
+
 ## Contributing
 
 We welcome contributions from anyone and everyone. Please see our [guidelines for contributing](CONTRIBUTING.md).
