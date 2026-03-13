@@ -9,7 +9,7 @@
 
 - [ ] T001 Create `examples/geocode_notebook.ipynb` with basic cells for imports, data loading, and placeholder geocoding logic
 - [ ] T002 Verify `examples/addresses.csv` exists and contains sample address rows (create a minimal sample row if missing)
-- [ ] T003 [P] Ensure `requirements.txt` includes `arcgis` and `arcgis-mapping` (or document required dependencies)
+- [ ] T003 [P] Ensure `pyproject.toml` and `requirements.txt` includes `arcgis` and `arcgis-mapping` (or document required dependencies)
 
 ---
 
