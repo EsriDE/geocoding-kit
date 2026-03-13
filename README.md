@@ -89,6 +89,16 @@ Key parts:
 
 ### Run a simple interactive cli
 
+The CLI is intentionally kept minimal and uses the default geocoding parameters provided by ArcGIS Location Platform. It is designed for quick, one‑off lookups using single‑line, well‑formed addresses (ideally including postal code, city, and country).
+If you need to handle:
+
+- custom or advanced geocoding parameters,
+- incomplete or malformed address strings,
+- multi-field input structures, or
+- edge cases requiring fine‑tuned locator behavior,
+
+Please visit the technical [geocoding guide](https://developers.arcgis.com/documentation/mapping-and-location-services/geocoding/) for the full set of capabilities and parameter options.
+
 ```bash
 uv run cli --help
 
@@ -105,7 +115,7 @@ USAGE EXAMPLE:
   Interactive mode (prompts for address) with verbose output:
     cli --verbose
 
-For more information, visit https://developers.arcgis.com/documentation/mapping-apis-and-services/location-services/geocode/
+For more information, visit https://developers.arcgis.com/documentation/mapping-and-location-services/geocoding/
 ```
 
 ```bash
