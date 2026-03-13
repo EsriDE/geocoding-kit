@@ -20,3 +20,13 @@ The output CSV includes the following columns:
 - `score` (match confidence)
 - `match_type` (match type)
 - `match_status` (`M` / `T` / `U`)
+
+## Run the jupyter notebook example
+
+The `geocode_notebook.ipynb` demonstrates how to use the `geocoding-kit` module with `arcgis` / `arcgis-mapping` to geocode a list of addresses and display the results using a map view.
+
+**Prerequisites:**
+- Install dependencies: `pip install arcgis arcgis-mapping` or if `uv` is installed, just use `uv run jupyter lab`
+- Set `ARCGIS_API_KEY` in your environment or `.env` file.
+
+![Geocoding results](https://github.com/user-attachments/assets/e81738ff-4711-4320-9283-9e9a228e9f2f)
