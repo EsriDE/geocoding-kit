@@ -13,6 +13,7 @@ This quickstart demonstrates how to use the geocoding-kit to geocode addresses u
 Ensure the required packages are installed:
 
 ```bash
+pip install -e .
 pip install arcgis arcgis-mapping
 ```
 

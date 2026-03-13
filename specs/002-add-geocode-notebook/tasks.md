@@ -7,9 +7,9 @@
 
 **Purpose**: Create the example notebook scaffold and ensure required assets exist.
 
-- [ ] T001 Create `examples/geocode_notebook.ipynb` with basic cells for imports, data loading, and placeholder geocoding logic
-- [ ] T002 Verify `examples/addresses.csv` exists and contains sample address rows (create a minimal sample row if missing)
-- [ ] T003 [P] Ensure `pyproject.toml` and `requirements.txt` includes `arcgis` and `arcgis-mapping` (or document required dependencies)
+- [x] T001 Create `examples/geocode_notebook.ipynb` with basic cells for imports, data loading, and placeholder geocoding logic
+- [x] T002 Verify `examples/addresses.csv` exists and contains sample address rows (create a minimal sample row if missing)
+- [x] T003 [P] Ensure `pyproject.toml` and `requirements.txt` includes `arcgis` and `arcgis-mapping` (or document required dependencies)
 
 ---
 
@@ -17,8 +17,8 @@
 
 **Purpose**: Provide the reusable pieces the notebook will reference.
 
-- [ ] T004 [P] Add a short helper cell in `examples/geocode_notebook.ipynb` to load addresses into a pandas DataFrame from `examples/addresses.csv`
-- [ ] T005 [P] Add clear markdown instructions in `examples/geocode_notebook.ipynb` describing where to configure ArcGIS credentials and how to install dependencies
+- [x] T004 [P] Add a short helper cell in `examples/geocode_notebook.ipynb` to load addresses into a pandas DataFrame from `examples/addresses.csv`
+- [x] T005 [P] Add clear markdown instructions in `examples/geocode_notebook.ipynb` describing where to configure ArcGIS credentials and how to install dependencies
 
 ---
 
@@ -28,8 +28,8 @@
 
 **Independent Test**: Open `examples/geocode_notebook.ipynb`, run all cells, and confirm a DataFrame of geocoded results is displayed.
 
-- [ ] T006 [US1] Add a code cell in `examples/geocode_notebook.ipynb` that calls the geocoding-kit geocode function and stores results in a DataFrame
-- [ ] T007 [US1] Add a code cell in `examples/geocode_notebook.ipynb` that displays the geocode results (matched address, latitude, longitude, confidence)
+- [x] T006 [US1] Add a code cell in `examples/geocode_notebook.ipynb` that calls the geocoding-kit geocode function and stores results in a DataFrame
+- [x] T007 [US1] Add a code cell in `examples/geocode_notebook.ipynb` that displays the geocode results (matched address, latitude, longitude, confidence)
 
 ---
 
@@ -39,8 +39,8 @@
 
 **Independent Test**: Review `examples/geocode_notebook.ipynb` and confirm it imports `arcgis` and `arcgis.mapping` and includes explanatory text.
 
-- [ ] T008 [US2] Add a code cell in `examples/geocode_notebook.ipynb` importing `arcgis` and `arcgis.mapping` and initializing a `GIS` object
-- [ ] T009 [US2] Add a markdown cell in `examples/geocode_notebook.ipynb` explaining how the `arcgis` and `arcgis-mapping` modules are used in the notebook
+- [x] T008 [US2] Add a code cell in `examples/geocode_notebook.ipynb` importing `arcgis` and `arcgis.mapping` and initializing a `GIS` object
+- [x] T009 [US2] Add a markdown cell in `examples/geocode_notebook.ipynb` explaining how the `arcgis` and `arcgis-mapping` modules are used in the notebook
 
 ---
 
@@ -48,8 +48,8 @@
 
 **Purpose**: Ensure the notebook is clear, documented, and discoverable.
 
-- [ ] T010 [P] Update `specs/002-add-geocode-notebook/quickstart.md` to reference `examples/geocode_notebook.ipynb`
-- [ ] T011 [P] Confirm `examples/geocode_notebook.ipynb` includes clear step-by-step instructions and is runnable end-to-end
+- [x] T010 [P] Update `specs/002-add-geocode-notebook/quickstart.md` to reference `examples/geocode_notebook.ipynb`
+- [x] T011 [P] Confirm `examples/geocode_notebook.ipynb` includes clear step-by-step instructions and is runnable end-to-end
 
 ---
 

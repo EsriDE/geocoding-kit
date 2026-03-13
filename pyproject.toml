@@ -6,5 +6,6 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "arcgis>=2.4.2",
+    "arcgis-mapping>=4.33.1",
     "dotenv>=0.9.9",
 ]
