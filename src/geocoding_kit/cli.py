@@ -29,7 +29,7 @@ def create_parser() -> argparse.ArgumentParser:
             "USAGE EXAMPLE:\n"
             "  Interactive mode (prompts for address) with verbose output:\n"
             "    cli --verbose\n\n"
-            "For more information, visit https://developers.arcgis.com/documentation/mapping-apis-and-services/location-services/geocode/"
+            "For more information, visit https://developers.arcgis.com/documentation/mapping-and-location-services/geocoding/"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
