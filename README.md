@@ -90,7 +90,22 @@ Key parts:
 ### Run a simple interactive cli
 
 ```bash
-uv run cli
+uv run cli --help
+
+usage: cli [-h] [--key KEY] [-v]
+
+Python shell for exploring ArcGIS Location Platform geocoding services
+
+options:
+  -h, --help     show this help message and exit
+  --key KEY      ArcGIS Location Platform API key. If omitted, reads ARCGIS_API_KEY from the environment or .env.
+  -v, --verbose  Enable verbose output
+
+USAGE EXAMPLE:
+  Interactive mode (prompts for address) with verbose output:
+    cli --verbose
+
+For more information, visit https://developers.arcgis.com/documentation/mapping-apis-and-services/location-services/geocode/
 ```
 
 ```bash
