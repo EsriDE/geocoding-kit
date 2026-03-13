@@ -10,6 +10,10 @@ A small repo of examples and best-practices for working with geocoding APIs.
 
 ### Installation
 
+You can set up the project using either a traditional Python virtual environment **or** the `uv` tool.
+
+## Option A: Standard Python Environment
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/EsriDE/geocoding-kit.git
@@ -35,6 +39,35 @@ A small repo of examples and best-practices for working with geocoding APIs.
 2. Run the example script:
    ```bash
    python examples/geocode_addresses.py --input examples/addresses.csv --output examples/results.csv
+   ```
+
+3. Inspect the output:
+   ```bash
+   cat examples/results.csv
+   ```
+
+## Option B: Using uv (recommended for fast, isolated environments)
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/EsriDE/geocoding-kit.git
+   cd geocoding-kit
+
+2. Create and sync the environment:
+   ```bash
+   uv sync
+   ```
+
+## Example: Geocode a list of addresses
+
+1. Copy `.env.example` to `.env` and set your ArcGIS API key:
+   ```bash
+   cp .env.example .env
+   # edit .env and set ARCGIS_API_KEY
+   ```
+2. Run via uv run:
+   ```bash
+   uv run examples/geocode_addresses.py --input examples/addresses.csv --output examples/results.csv
    ```
 
 3. Inspect the output:
