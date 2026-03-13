@@ -77,7 +77,7 @@ You can set up the project using either a traditional Python virtual environment
 
 ## Feature: ArcGIS API for Python Geocoding Example
 
-This repo includes a complete example feature implemented using the `specs/001-arcgis-python-geocode/` specification.
+This repo includes a complete example feature implemented using the [`001-arcgis-python-geocode`](/specs/001-arcgis-python-geocode/spec.md), and [`002-add-geocode-notebook`](/specs/002-add-geocode-notebook/spec.md) specification.
 
 Key parts:
 
