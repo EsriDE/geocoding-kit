@@ -99,7 +99,7 @@ If you need to handle:
 
 Please visit the technical [geocoding guide](https://developers.arcgis.com/documentation/mapping-and-location-services/geocoding/) for the full set of capabilities and parameter options.
 
-![cli](https://github.com/user-attachments/assets/f146cc63-2e06-435e-bbf2-1cf11ea6ab18)
+<video src="https://github.com/user-attachments/assets/f146cc63-2e06-435e-bbf2-1cf11ea6ab18"/>
 
 ```bash
 uv run cli --help
