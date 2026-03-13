@@ -26,7 +26,7 @@ pip install arcgis arcgis-mapping
 
 2. Start Jupyter notebook:
    ```bash
-   jupyter notebook
+   jupyter lab
    ```
 
 3. Open `geocode_notebook.ipynb`
