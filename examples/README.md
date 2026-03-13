@@ -20,3 +20,7 @@ The output CSV includes the following columns:
 - `score` (match confidence)
 - `match_type` (match type)
 - `match_status` (`M` / `T` / `U`)
+
+## Run the jupyter notebook example
+
+![Geocoding results](https://github.com/user-attachments/assets/e81738ff-4711-4320-9283-9e9a228e9f2f)
