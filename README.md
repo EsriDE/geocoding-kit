@@ -81,8 +81,8 @@ This repo includes a complete example feature implemented using the `specs/001-a
 
 Key parts:
 
-- `examples/geocode_addresses.py` — runnable script that reads a CSV, calls geocode, and writes results.
-- `examples/geocode_notebook.ipynb` — runnable jupyter notebook that reads a CSV, calls geocode, and displays the results in a map view.
+- [`examples/geocode_addresses.py`](examples/geocode_addresses.py) — runnable script that reads a CSV, calls geocode, and writes results.
+- [`examples/geocode_notebook.ipynb`](examples/geocode_notebook.ipynb) — runnable jupyter notebook that reads a CSV, calls geocode, and displays the results in a map view.
 - `src/geocoding_kit/` — supporting library (config, models, geocoding logic).
 - `tests/` — unit + integration tests verifying behavior.
 - `specs/` — spec, implementation plan, and task tracking.
